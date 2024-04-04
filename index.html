@@ -1,1 +1,202 @@
-Hello!
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WP Dublin</title>
+<meta name="description" content="">
+
+<style>
+:root {
+    --color-light: #c8d6e5;
+    --color-dark: #222f3e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+
+    font-family: "Bricolage Grotesque", sans-serif;
+
+    line-height: 1.5;
+    letter-spacing: -0.004em;
+    background-color: var(--color-dark);
+}
+
+a {
+    color: currentColor;
+}
+
+.wrap {
+    background-color: #ffffff;
+    padding: 48px;
+    margin: 16px;
+    border-radius: 24px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4em;
+}
+
+.grid-item {
+    background-color: #eeeeee;
+    padding: 2em;
+    font-size: 28px;
+
+    box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+    border-radius: 16px;
+}
+
+.grid-item:first-child {
+    color: #ffffff;
+    background-color: #092034;
+}
+.grid-item:last-child {
+    color: #ffffff;
+    background-color: #FC427B;
+}
+
+button {
+    font-family: inherit;
+    color: var(--color-dark);
+    font-size: 20px;
+    font-weight: 600;
+    padding: 12px 24px;
+}
+
+svg {
+    height: 48px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-light);
+}
+
+
+
+.button{
+  transform: perspective(400px);
+  display: inline-block;
+  margin: 0 auto;
+  background-color:#ffffff;
+  color: var(--color-dark);
+  border:none;
+  padding: 12px 24px;
+  cursor:pointer;
+  overflow:hidden;
+  outline:none;
+    text-decoration: none;
+}
+
+.button::before{
+  z-index:-1;
+  content:'';
+  position:absolute;
+  opacity:0;
+  height:50px;
+  width:50px;
+  transform: translateY(-25%);
+  border-radius:50%;
+  top:var(--posY);
+  left:var(--posX);
+  background-color:var(--color-light);
+  transition: all 500ms ease-in-out;
+  transition-property: opacity, transform;
+}
+
+.button:hover::before{
+  opacity:1;
+  transition: all 500ms ease-in-out;
+  transition-property: opacity, transform, background-color;
+  transform:scale(15);
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+    <div class="grid-container">
+        <div class="grid-item">
+            <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 64 64">
+                    <path fill="#58666f" stroke="#fff" stroke-miterlimit="10" stroke-width="2.83"
+                        d="m60.5 35.6-24 24c-2.3 2.3-6 2.3-8.3 0l-24-24c-2.3-2.3-2.3-6 0-8.3l24-24c2.3-2.3 6-2.3 8.3 0l24 24c2.3 2.3 2.3 6 0 8.3z" />
+                    <linearGradient id="a" x1="35.14" x2="45.85" y1="26.69" y2="53.06" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#312d31" />
+                        <stop offset=".73" stop-opacity="0" />
+                    </linearGradient>
+                    <path fill="url(#a)" d="m36.7 59.4-7.8-11.5L45 20.1l10.6 20.4z" opacity=".48" />
+                    <linearGradient id="b" x1="252.88" x2="259.95" y1="35.19" y2="52.59"
+                        gradientTransform="matrix(-1 0 0 1 235.09 0)" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#312d31" />
+                        <stop offset=".73" stop-opacity="0" />
+                    </linearGradient>
+                    <path fill="url(#b)" d="m25.2 56.4 7.9-19.8c-8.6.3-13.6 2.1-15.5 5.1l7.6 14.7z" opacity=".48" />
+                    <path fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width=".07"
+                        d="M43.7 18.1c-4.5-4.8-12.1-4.3-17.6.8-.8.7-1.4 1.5-2 2.4-3.8 5.1-9.2 16.7-7 19.9 1.1 1.6.1-1.3 7.4-3.3 1.1-.1 2.4-.2 3.8-.4l4.7-1c-.5.2-1.5.5-2.6.8-1.1.9-2 3-3.7 8.6-1.4 4.5-2.1 8.4-1.7 11l3.1 3.1c3.6 3.6 8.1.4 8.6-.6.3-3.2-2.8-9-2.1-13.5.5-3 3-6.8 4.3-9.4 1.7-.4 2.8-1 3.7-2 4.3-3.9 4.9-12.3 1.1-16.4z" />
+                    <path fill="#616262"
+                        d="M33 21.4a4.6 4.6 0 0 0 8.9 2.4c0-.1.1-.3.1-.4a4.57 4.57 0 0 0-3.5-5.5c-2.5-.6-4.9 1-5.5 3.5z" />
+                    <path fill="#fff" d="M40.1 25c1 0-2.6 2.3-4.6.9s-1.7-2.9-1.2-3.6c1-1.3 2.3 2.6 5.8 2.7z" />
+                </svg> denote.ie</div>
+            <p>Denote is your one-stop solution for all aspects of <a
+                    href="https://denote.ie/tailored-website-development/">web development</a> and maintenance &
+                support, ensuring your online presence is both robust and dynamic.</p>
+            <p>Our <a href="https://denote.ie/">Web Design Agency</a>, based in Limerick, keeps pace with the latest
+                technologies, incorporating the most up-to-date tools and techniques to ensure a stunning online
+                presence for our clients.</p>
+            <a href="https://denote.ie/" class="button">Visit denote.ie</a>
+        </div>
+        <div class="grid-item">
+            <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+                    <path fill="#ffffff"
+                        d="M937 877c-5-20-17-36-38-39-15-1-23-9-31-20l-13-16c-6-5-7-12-7-20V596c0-7 1-13 5-19 53-95 43-187-16-275-42-62-86-121-130-181-2-3-3-7-9-8v103l-3 1-75-105c-2 28-2 55-2 82-1 19 4 39-2 55-7 15-25 26-37 40-7 7-14 10-25 10h-79l1 5c16 58 71 101 131 103h70l-9 11-163 162c-34 35-63 74-82 119-23 58-26 119-26 180 0 9 6 8 11 8h354c12 0 13-5 11-14-5-20-24-36-45-36h-42c25-39 33-68 24-120l11 13 118 148c4 5 7 10 15 10h74c10 0 11-4 9-11zM663 315c-10 0-19-9-19-19-1-9 8-19 18-19s19 8 20 18c0 10-9 20-19 20zm-439-3c-53-20-108-11-161-12 58 19 86 65 84 123-2 81 0 161 0 242 0 117 88 212 205 221 16 1 16 1 16-16V519c0-93-57-174-144-207z" />
+                </svg> Quick Brown Fox</div>
+            <p>Good SEO is all about pushing boundaries and experimenting with new ideas.
+                It’s about dreaming, thinking outside the box, and creating something unique.</p>
+            <p><a href="https://qbf.ie/services/seo/">Technical SEO specialist</a> and <a
+                    href="https://qbf.ie/services/seo-consultant/">SEO coach</a> in <a
+                    href="https://qbf.ie/service-areas/dublin-seo/">Dublin</a>, Ireland. SEO services include search
+                engine optimisation, technical SEO, website auditing, pagespeed optimisation and complementary web
+                services.</p>
+            <a href="https://qbf.ie/" class="button">Visit Quick Brown Fox</a>
+        </div>
+    </div>
+</div>
+
+<script>
+let buttons = document.querySelectorAll('.button');
+
+buttons.forEach(button => {
+  const height = button.clientHeight;
+  const width = button.clientWidth;
+
+  button.addEventListener('mousemove', handleMove);
+
+  function handleMove(e) {
+    const xVal = e.layerX;
+    const yVal = e.layerY;
+
+    const yRotation = 35 * ((xVal - width / 2) / width);
+    const xRotation = -35 * ((yVal - height / 2) / height);
+
+    const string = 'perspective(250px) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)';
+    button.style.transform = string;
+
+    document.documentElement.style.setProperty('--posY', ((yVal / 90) * 100) + "%");
+    document.documentElement.style.setProperty('--posX', ((xVal / 211) * 100) + "%");
+  }
+});
+</script>
+</body>
+</html>
