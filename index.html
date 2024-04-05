@@ -91,7 +91,7 @@ a {
 }
 .grid-item:last-child {
     color: #ffffff;
-    background-color: #FC427B;
+    background-color: #fc427b;
 }
 
 button {
@@ -115,44 +115,62 @@ svg {
     color: var(--color-light);
 }
 
-
-
-.button{
-  transform: perspective(400px);
-  display: inline-block;
-  margin: 0 auto;
-  background-color:#ffffff;
-  color: var(--color-dark);
-  border:none;
-  border-radius: 16px;
-  padding: 12px 24px;
-  cursor:pointer;
-  overflow:hidden;
-  outline:none;
+.button {
+    transform: perspective(400px);
+    display: inline-block;
+    margin: 0 auto;
+    background-color: #ffffff;
+    color: var(--color-dark);
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
     text-decoration: none;
+    border-radius: 16px;
 }
 
-.button::before{
-  z-index:-1;
-  content:'';
-  position:absolute;
-  opacity:0;
-  height:50px;
-  width:50px;
-  transform: translateY(-25%);
-  border-radius:50%;
-  top:var(--posY);
-  left:var(--posX);
-  background-color:var(--color-light);
-  transition: all 500ms ease-in-out;
-  transition-property: opacity, transform;
+.button::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    opacity: 0;
+    height: 50px;
+    width: 50px;
+    transform: translateY(-25%);
+    border-radius: 50%;
+    top: var(--posY);
+    left: var(--posX);
+    background-color: var(--color-light);
+    transition: all 500ms ease-in-out;
+    transition-property: opacity, transform;
 }
 
-.button:hover::before{
-  opacity:1;
-  transition: all 500ms ease-in-out;
-  transition-property: opacity, transform, background-color;
-  transform:scale(15);
+.button:hover::before {
+    opacity: 1;
+    transition: all 500ms ease-in-out;
+    transition-property: opacity, transform, background-color;
+    transform: scale(15);
+}
+
+@media only screen and (max-width: 768px) {
+    .wrap {
+        padding: 16px;
+        margin: 12px;
+        border-radius: 24px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1em;
+    }
+    .grid-item {
+        padding: 1em;
+        font-size: 22px;
+    }
+    .button {
+        font-size: 16px;
+    }
 }
 </style>
 </head>
@@ -208,27 +226,38 @@ svg {
 </div>
 
 <script>
-let buttons = document.querySelectorAll('.button');
+let buttons = document.querySelectorAll(".button");
 
-buttons.forEach(button => {
-  const height = button.clientHeight;
-  const width = button.clientWidth;
+buttons.forEach((button) => {
+    const height = button.clientHeight;
+    const width = button.clientWidth;
 
-  button.addEventListener('mousemove', handleMove);
+    button.addEventListener("mousemove", handleMove);
 
-  function handleMove(e) {
-    const xVal = e.layerX;
-    const yVal = e.layerY;
+    function handleMove(e) {
+        const xVal = e.layerX;
+        const yVal = e.layerY;
 
-    const yRotation = 35 * ((xVal - width / 2) / width);
-    const xRotation = -35 * ((yVal - height / 2) / height);
+        const yRotation = 35 * ((xVal - width / 2) / width);
+        const xRotation = -35 * ((yVal - height / 2) / height);
 
-    const string = 'perspective(250px) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)';
-    button.style.transform = string;
+        const string =
+            "perspective(250px) rotateX(" +
+            xRotation +
+            "deg) rotateY(" +
+            yRotation +
+            "deg)";
+        button.style.transform = string;
 
-    document.documentElement.style.setProperty('--posY', ((yVal / 90) * 100) + "%");
-    document.documentElement.style.setProperty('--posX', ((xVal / 211) * 100) + "%");
-  }
+        document.documentElement.style.setProperty(
+            "--posY",
+            (yVal / 90) * 100 + "%"
+        );
+        document.documentElement.style.setProperty(
+            "--posX",
+            (xVal / 211) * 100 + "%"
+        );
+    }
 });
 </script>
 </body>
